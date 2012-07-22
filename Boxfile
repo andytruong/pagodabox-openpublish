@@ -1,0 +1,66 @@
+# Drupal admin: admin / Drupal12345
+
+web1: #component type & number
+  document_root: /openpublish
+  name: web-vietcoop
+  shared_writable_dirs:
+    - openpublish/sites/default/files
+    - tmp
+    - private
+    
+  php_extensions:
+    - apc
+    - bcmath
+    - gmp
+    - mysqli
+    - gd
+    - hash
+    - json
+    - xml
+    - pdo
+    - pdo_mysql
+    - mcrypt
+    - mbstring
+    - memcached
+
+  #cron:
+    #- "0 * * * * wget -O - -q -t 1 http://bin.trum.co/cron.php?cron_key=ozNpS06xhwsKCMJN12b2pIKEdkEZcwrBTNk8lGajqOM"
+    
+  after_build:
+    # move pagoda config file
+    - "mv settings.php openpublish/sites/default/settings.php"
+
+web2:
+  document_root: /tools
+  name: tools-vietcoop
+  shared_writable_dirs:
+    - memcache/Temp
+  php_extensions:
+    - mysqli
+    - gd
+    - hash
+    - json
+    - xml
+    - pdo
+    - pdo_mysql
+    - mcrypt
+    - mbstring
+    - memcached
+
+db1: #component type & number 
+  name: db-vietcoop
+cache1:
+  name: mem1-vietcoop
+  type: memcached
+cache2:
+  name: mem2-vietcoop
+  type: memcached
+cache3:
+  name: mem3-vietcoop
+  type: memcached
+cache4:
+  name: mem4-vietcoop
+  type: memcached
+cache5:
+  name: mem5-vietcoop
+  type: memcached
