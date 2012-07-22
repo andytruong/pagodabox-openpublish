@@ -233,8 +233,8 @@ ini_set('session.cookie_lifetime', 2000000);
  * configured to cache and compress these files itself you may want to uncomment
  * one or both of the below lines, which will prevent gzip files being stored.
  */
-# $conf['css_gzip_compression'] = FALSE;
-# $conf['js_gzip_compression'] = FALSE;
+$conf['css_gzip_compression'] = TRUE;
+$conf['js_gzip_compression'] = TRUE;
 
 /**
  * String overrides:
@@ -295,19 +295,7 @@ ini_set('session.cookie_lifetime', 2000000);
 $conf['404_fast_paths_exclude'] = '/\/(?:styles)\//';
 $conf['404_fast_paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
 $conf['404_fast_html'] = '<html xmlns="http://www.w3.org/1999/xhtml"><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
-
-/**
- * By default, fast 404s are returned as part of the normal page request
- * process, which will properly serve valid pages that happen to match and will
- * also log actual 404s to the Drupal log. Alternatively you can choose to
- * return a 404 now by uncommenting the following line. This will reduce server
- * load, but will cause even valid pages that happen to match the pattern to
- * return 404s, rather than the actual page. It will also prevent the Drupal
- * system log entry. Ensure you understand the effects of this before enabling.
- *
- * To enable this functionality, remove the leading hash sign below.
- */
-# drupal_fast_404();
+drupal_fast_404();
 
 /**
  * Authorized file system operations:
